@@ -1,0 +1,43 @@
+.store { 
+  
+
+  height: 100vh;
+  width: 100vw;
+  background-color: #f0f0f0;
+}
+
+.store h1 {
+  text-align: center;
+}
+
+.store-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.store-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #e6e2e2;
+}
+
+.product-list {
+  width: 50%;
+  background-color: #e6e2e2;
+  padding: 10px;
+  text-align: start;
+  border-right: 1px solid #000;
+}
+
+.cart-list {
+  width: 50%;
+  background-color: #e6e2e2;
+  padding: 10px;  
+  text-align: center;
+}
+
+.product-list h1 {
+  text-align: center;
+}
