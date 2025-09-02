@@ -1,4 +1,3 @@
-
 export default function Buttons(){
 
     return (
@@ -8,6 +7,7 @@ export default function Buttons(){
             <button className="register-button">Register</button>
 
             <button className="login-button">
+                
                 Login
             </button>
 
@@ -17,3 +17,5 @@ export default function Buttons(){
         </div>
     )
 }
+
+
