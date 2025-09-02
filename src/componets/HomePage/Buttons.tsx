@@ -1,5 +1,5 @@
 
-
+import React from 'react';
 
 export default function Buttons({login, guest, register}: {login: React.ReactNode, guest: React.ReactNode, register: React.ReactNode}){
 

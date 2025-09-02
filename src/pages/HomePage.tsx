@@ -1,4 +1,4 @@
-import Login from "../componets/HomePage/MainLogin.tsx";
+import MainLogin from "../componets/HomePage/MainLogin.tsx";
 
 
 export default function HomePage(){
@@ -10,7 +10,7 @@ export default function HomePage(){
                 Welcome to Riddle Game!
             </h1>
 
-            <Login />
+            <MainLogin />
 
         </div>
     )
