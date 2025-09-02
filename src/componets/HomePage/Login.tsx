@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Login(){
     const navigate = useNavigate();
 
-    const handleLogin = () => {
+    function handleLogin() {
         
         //TODO: add logic to login
         navigate('/menu');

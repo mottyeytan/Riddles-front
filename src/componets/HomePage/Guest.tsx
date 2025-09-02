@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Guest(){
     const navigate = useNavigate();
 
-    const handleGuestLogin = () => {
+    function handleGuestLogin() {
         
 
         //TODO: add logic to login as guest
