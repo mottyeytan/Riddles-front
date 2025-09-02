@@ -1,15 +1,22 @@
 
 
+import { useNavigate } from 'react-router-dom';
 
-export default function guest(){
+export default function Guest(){
+    const navigate = useNavigate();
+
+    const handleGuestLogin = () => {
+        
+
+        //TODO: add logic to login as guest
+        navigate('/menu');
+    };
 
     return (
         <div className="gust-componet">
-            
             <h1>Enter your name</h1>
             <input type="text" placeholder="Username" />
-            <button>Login</button>
-
+            <button onClick={handleGuestLogin}>Login</button>
         </div>
     )
 }
