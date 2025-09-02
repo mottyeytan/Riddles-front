@@ -1,19 +1,17 @@
 
-import React from 'react';
-
-export default function Buttons({login, guest, register}: {login: React.ReactNode, guest: React.ReactNode, register: React.ReactNode}){
+export default function Buttons(){
 
     return (
         <div className="buttons-componet">
 
             <p> Don't have an account? </p>
-            <button className="register-button" onClick={register}>Register</button>
+            <button className="register-button">Register</button>
 
-            <button className="login-button" onClick={login}>
+            <button className="login-button">
                 Login
             </button>
 
-            <button className="guest-button" onClick={guest}>
+            <button className="guest-button">
                 Login as guest 
             </button>
         </div>

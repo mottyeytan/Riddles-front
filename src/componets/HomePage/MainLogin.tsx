@@ -2,7 +2,7 @@ import Buttons from "./Buttons.tsx";
 import Login from "./Login.tsx";
 import Guest from "./Guest.tsx";
 import Register from "./Register.tsx";
-import { Link } from "react-router-dom";
+
 
 export default function MainLogin(){
 
@@ -15,7 +15,7 @@ export default function MainLogin(){
 
             <Register />
 
-            <Buttons login={<Login />} guest={<Guest />} register={<Register />} />
+            <Buttons />
 
         </div>
     )
