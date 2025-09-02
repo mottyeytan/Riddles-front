@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "riddle": "What is the capital of France?",
+        "answer": "Paris"
+    },
+    {
+        "id": 2,
+        "riddle": "What is the capital of Germany?",
+        "answer": "Berlin"
+    }
+]

@@ -7,6 +7,8 @@ export default function NavBar(){
     const navigate = useNavigate();
 
     function handleLogout(){
+
+        //TODO: add logic to logout
         navigate('/');
     }
 
