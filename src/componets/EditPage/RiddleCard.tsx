@@ -1,4 +1,4 @@
-import riddles from '../../data/riddles.json';
+import riddles from '../../dal/riddles.json';
 
 
 export default function RiddleCard(){
