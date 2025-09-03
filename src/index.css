@@ -66,3 +66,38 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+/* .riddle-list{
+  margin-top: 100px;
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto;  
+  grid-template-rows: auto auto auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+} */
+
+.edit-riddles-page{
+  margin-top: 150px;
+}
+
+.riddle-card{
+  margin-top: 50px;
+  display: grid ;
+  grid-template-columns: auto auto ;  
+  grid-template-rows: 1fr 1fr ;
+  
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid #646cff;
+}
+
+.riddle-card-actions{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
