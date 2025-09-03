@@ -6,13 +6,14 @@ import NavBar from './componets/NavBar.tsx'
 import GamePage from './pages/GamePage.tsx'
 import EditRiddlesPage from './pages/EditRiddlesPage.tsx'
 import LeaderBoardPage from './pages/LeaderBoardPage.tsx'
+import TokenSaveProvider from './auth/AuthContext.tsx'
 
 function App() {
   const location = useLocation();
   const showNavBar = location.pathname !== '/';
 
   return (
-    <>
+    <TokenSaveProvider>
       {showNavBar && <NavBar />}
       
         <Routes>
@@ -23,7 +24,7 @@ function App() {
           <Route path="/leaderboard" element={<LeaderBoardPage />} />
         </Routes>
       
-    </>
+    </TokenSaveProvider>
   )
 }
 

@@ -1,14 +1,16 @@
 import { useNavigate } from 'react-router-dom';
-
+import { useAuth } from '../auth/AuthContext.tsx';
 
 
 
 export default function NavBar(){
     const navigate = useNavigate();
+    const { logout } = useAuth();
 
     function handleLogout(){
 
         //TODO: add logic to logout
+        logout();
         navigate('/');
     }
 
