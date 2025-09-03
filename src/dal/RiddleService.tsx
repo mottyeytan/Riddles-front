@@ -1,4 +1,3 @@
-import {useAuth} from '../auth/AuthContext.tsx';
 
 const BASE_URL = 'http://localhost:3000/riddles/';
 
