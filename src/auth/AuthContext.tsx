@@ -14,7 +14,7 @@ export const TokenSaveContext = createContext<AuthContextType | undefined>(undef
 export default function AuthProvider({ children }: { children: React.ReactNode }){
     const [token, setToken] = useState<string | null>(null);
     const [role, setRole] = useState<string | null>(null);
-    const [loading, setLoading] = useState<boolean>(false);
+
 
     useEffect(() => {
         const savedToken = localStorage.getItem('token');
@@ -25,8 +25,6 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
             setRole(savedUser);
             
         }
-
-        setLoading(false);
     }, []);
 
     function login(Newtoken: string, role: string){
