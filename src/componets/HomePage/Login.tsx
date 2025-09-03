@@ -30,11 +30,12 @@ export default function Login(){
             });
 
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
 
             if(response.ok){
-                login(data.token, data.user);
+                login(data.token, data.role);
                 navigate('/menu');
+
             } else {
                 setError(data.message || 'Invalid username or password');
             }
@@ -49,8 +50,8 @@ export default function Login(){
         <div className="login-componet">
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
-                <input type="text" placeholder="Username"  value={username} onChange={(e) => setUsername(e.target.value)} />
-                <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input required type="text" placeholder="Username"  value={username} onChange={(e) => setUsername(e.target.value)} />
+                <input required type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <button type="submit">Login</button>
                 {error && (
                     <div className="error-message" style={{color: 'red'}}>{error}</div>

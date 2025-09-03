@@ -3,8 +3,8 @@ import { createContext, useState, useEffect, useContext } from "react";
 
 interface AuthContextType {
     token: string | null;
-    user: string | null;
-    login: (token: string, user: string) => void;
+    role: string | null;
+    login: (token: string, role: string) => void;
     logout: () => void;
     
 }
@@ -13,38 +13,39 @@ export const TokenSaveContext = createContext<AuthContextType | undefined>(undef
 
 export default function AuthProvider({ children }: { children: React.ReactNode }){
     const [token, setToken] = useState<string | null>(null);
-    const [user, setUser] = useState<string | null>(null);
+    const [role, setRole] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         const savedToken = localStorage.getItem('token');
-        const savedUser = localStorage.getItem('user');
+        const savedUser = localStorage.getItem('role');
 
-        if(savedToken && savedUser){
+        if(savedToken && savedUser ){
             setToken(savedToken);
-            setUser(JSON.parse(savedUser));
+            setRole(savedUser);
+            
         }
 
         setLoading(false);
     }, []);
 
-    function login(Newtoken: string, userData: string){
+    function login(Newtoken: string, role: string){
         setToken(Newtoken);
-        setUser(userData);
+        setRole(role);
 
         localStorage.setItem('token', Newtoken);
-        localStorage.setItem('user', JSON.stringify(userData));
+        localStorage.setItem('role', role);
     }
 
     function logout(){
         setToken(null);
-        setUser(null);
+        setRole(null);
         localStorage.removeItem('token');
-        localStorage.removeItem('user');
+        localStorage.removeItem('role');
     }
 
     return (
-        <TokenSaveContext.Provider value={{ token, user, login, logout}}>
+        <TokenSaveContext.Provider value={{ token, role, login, logout}}>
             {children}
         </TokenSaveContext.Provider>
     )

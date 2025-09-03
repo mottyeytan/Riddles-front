@@ -32,7 +32,7 @@ export default function Register(){
             console.log(data);
 
             if(response.ok){
-                login(data.token, data.user);
+                login(data.token, data.role);
                 navigate('/menu');
             } else {
                 setError(data.message || 'Invalid username or password');
@@ -47,8 +47,8 @@ export default function Register(){
         <div className="register-componet">
             <h1>Register</h1>
             <form onSubmit={handleRegister}>
-            <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input required type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <input required type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
             <button type="submit">Register</button>
             {error && (
                 <div className="error-message" style={{color: 'red'}}>{error}</div>

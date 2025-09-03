@@ -1,24 +1,19 @@
+import { useAuth } from "../auth/AuthContext.tsx";
 import EditRiddlesButton from "../componets/MenuPage/EditRiddlesButton.tsx";
 import LeaderboardButton from "../componets/MenuPage/LeaderboardButton.tsx";
 import PlayGameButton from "../componets/MenuPage/PlayGameButton.tsx";
-// import { useState, useContext } from "react";
-// import { AuthContext } from "../contexts/AuthContext.tsx";
+
 
 export default function MenuPage(){
-    // const [showEditRiddles, setShowEditRiddles] = useState(false);
-    // const { whoIsLoggedIn } = useContext(AuthContext);
+    const { role } = useAuth();
 
 
-    // function handleEditRiddles(){
-    //     {whoIsLoggedIn === 'admin' || whoIsLoggedIn === 'user' && (
-    //         setShowEditRiddles(true)
-    //     )}
-    // }
+    const showEditRiddles = role === 'admin' || role === 'user';
 
     return (
         <div className="menu-page">
             <PlayGameButton />
-            {<EditRiddlesButton />}
+            {showEditRiddles && <EditRiddlesButton />}
             <LeaderboardButton />
         </div>
     )

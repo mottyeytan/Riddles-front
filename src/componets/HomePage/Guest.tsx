@@ -30,7 +30,7 @@ export default function Guest(){
             console.log(data);
 
             if(response.ok){
-                login(data.token, data.user);
+                login(data.token, data.role);
                 navigate('/menu');
             } else {
                 setError(data.message || 'Invalid username or password');
@@ -45,7 +45,7 @@ export default function Guest(){
         <div className="gust-componet">
             <h1>Enter your name</h1>
             <form onSubmit={handleGuestLogin}>
-            <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <input required type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
             <button type="submit">Login</button>
             {error && (
                 <div className="error-message" style={{color: 'red'}}>{error}</div>
