@@ -8,6 +8,8 @@ import EditRiddlesPage from './pages/EditRiddlesPage.tsx'
 import LeaderBoardPage from './pages/LeaderBoardPage.tsx'
 import TokenSaveProvider from './auth/AuthContext.tsx'
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute.tsx'
+import ProtectedRouteUser from './ProtectedRoute/ProtectedRoute.tsx'
+import { RiddlesProvider } from './dal/UseRiddles.tsx'
 
 function App() {
   const location = useLocation();
@@ -15,19 +17,27 @@ function App() {
 
   return (
     <TokenSaveProvider>
+      <RiddlesProvider>
+
       {showNavBar && <NavBar />}
       
         <Routes>
           <Route path="/" element={<HomePage />} />
           
           <Route path="/" element={<ProtectedRoute />}>
+
             <Route path="/menu" element={<MenuPage />} />
             <Route path="/game" element={<GamePage />} />
-            <Route path="/edit-riddles" element={<EditRiddlesPage />} />
             <Route path="/leaderboard" element={<LeaderBoardPage />} />
+            
+            <Route path="/" element={<ProtectedRouteUser />}>
+            <Route path="/edit-riddles" element={<EditRiddlesPage />} />
+            </Route>
+
           </Route>
         </Routes>
-      
+        
+      </RiddlesProvider>
     </TokenSaveProvider>
   )
 }
