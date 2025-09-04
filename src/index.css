@@ -82,6 +82,16 @@ button:focus-visible {
   margin-top: 150px;
 }
 
+.riddles-list{
+  margin-top: 50px;
+  display: grid ;
+  grid-template-columns: auto auto  ;  
+  grid-template-rows: auto auto  ;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 .riddle-card{
   margin-top: 50px;
   display: grid ;
