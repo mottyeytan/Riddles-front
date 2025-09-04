@@ -1,5 +1,5 @@
 
-const BASE_URL = 'http://localhost:3000/riddles/';
+const BASE_URL = 'https://riddle-server.onrender.com/riddles/';
 
 export interface Riddle {
     id: number;

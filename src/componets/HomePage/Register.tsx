@@ -16,7 +16,7 @@ export default function Register(){
         
         
         try{
-            const response = await fetch('http://localhost:3000/auth/signup', {
+            const response = await fetch('https://riddle-server.onrender.com/auth/signup', {
                 method: 'POST',
                 credentials: 'include',
                 headers: {
