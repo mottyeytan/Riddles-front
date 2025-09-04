@@ -16,6 +16,22 @@ export default function CreateRiddle(){
         difficulty: 'easy' as 'easy' | 'medium' | 'hard',
         correctAnswer: ''
     });
+
+    if (loading) {
+        return (
+            <div className="create-riddle-container">
+                <p>Loading...</p>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="create-riddle-container">
+                <p>Error: {error}</p>
+            </div>
+        );
+    }
     
     
     
