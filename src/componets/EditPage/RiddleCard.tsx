@@ -1,8 +1,10 @@
 import { type Riddle } from '../../dal/RiddleService.tsx';
 import { useState } from 'react';
 import { useRiddles } from '../../dal/UseRiddles.tsx';
+import {useAuth} from '../../auth/AuthContext.tsx';
 
 export default function RiddleCard({riddle}: {riddle: Riddle}){
+    const { role } = useAuth();
     const { updateRiddle, deleteRiddle } = useRiddles(); 
     const [isEditing, setIsEditing] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -16,8 +18,6 @@ export default function RiddleCard({riddle}: {riddle: Riddle}){
         difficulty: 'easy' as 'easy' | 'medium' | 'hard',
         correctAnswer: ''
     });
-
-    
 
     if (loading) {
         return (
@@ -90,9 +90,6 @@ export default function RiddleCard({riddle}: {riddle: Riddle}){
         }
     }
 
-
-    
-
     const cancelEditing = () => {
         setIsEditing(false);
     };
@@ -110,8 +107,21 @@ export default function RiddleCard({riddle}: {riddle: Riddle}){
                         <p><strong>Answer:</strong> {riddle.correctAnswer}</p>
 
                         <div className="riddle-card-actions">
-                            <button onClick={startEditing}>Edit</button>
-                            <button onClick={handleDelete}>Delete</button>
+                            <button
+                             onClick={role === 'admin' ? startEditing : undefined}
+                            disabled={role !== 'admin'}
+                            className={role !== 'admin' ? 'riddle-card-actions-disabled' : 'riddle-card-actions-enabled'}
+                            title={role !== 'admin' ? 'You are not authorized to edit this riddle' : 'Edit this riddle'}
+                            >Edit
+                            </button>
+                            
+                            <button
+                             onClick={role === 'admin' ? handleDelete : undefined}
+                            disabled={role !== 'admin'}
+                            className={role !== 'admin' ? 'riddle-card-actions-disabled' : 'riddle-card-actions-enabled'}
+                            title={role !== 'admin' ? 'You are not authorized to delete this riddle' : 'Delete this riddle'}
+                            >Delete
+                            </button>
                         </div>
                     </>
                 ) : (
