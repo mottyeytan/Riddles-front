@@ -101,3 +101,23 @@ button:focus-visible {
   justify-content: center;
   gap: 10px;
 }
+
+.create-riddle-card{
+  margin-top: 50px;
+  display: grid ;
+  grid-template-columns: auto auto ;  
+  grid-template-rows: 1fr 1fr ;
+  
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid #646cff;
+}
+
+.create-riddle-actions{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}

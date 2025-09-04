@@ -8,12 +8,14 @@ interface RiddlesContextType {
     updateRiddle: (riddle: Riddle) => Promise<void>;
     deleteRiddle: (id: number) => Promise<void>;
     createRiddle: (riddle: Riddle) => Promise<void>;
+    riddleLength: number;
 }
 
 const RiddlesContext = createContext<RiddlesContextType | undefined>(undefined);
 
 export function RiddlesProvider({ children }: { children: React.ReactNode }) {
     const [riddles, setRiddles] = useState<Riddle[]>([]);
+    const [riddleLength, setRiddleLength] = useState<number>(0);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -25,6 +27,7 @@ export function RiddlesProvider({ children }: { children: React.ReactNode }) {
                 setError(null);
                 const data = await RiddleService.getRiddles();
                 setRiddles(Array.isArray(data) ? data : []);
+                setRiddleLength(data.length);
             } catch (err) {
                 console.error('Error fetching riddles:', err);
                 setError(err instanceof Error ? err.message : 'An error occurred');
@@ -36,6 +39,8 @@ export function RiddlesProvider({ children }: { children: React.ReactNode }) {
         
         fetchRiddles();
     }, [refreshTrigger]);
+
+    
 
     async function createRiddle(riddle: Riddle){
         try {
@@ -65,7 +70,7 @@ export function RiddlesProvider({ children }: { children: React.ReactNode }) {
     }
 
     return (
-        <RiddlesContext.Provider value={{ riddles, loading, error, createRiddle, updateRiddle, deleteRiddle }}>
+        <RiddlesContext.Provider value={{ riddles, loading, error, createRiddle, updateRiddle, deleteRiddle, riddleLength }}>
             {children}
         </RiddlesContext.Provider>
     );
