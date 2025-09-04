@@ -90,8 +90,8 @@ export class RiddleService{
                 method: 'DELETE', 
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ id: id })
+                }
+                
             });
             const data = await response.json();
 

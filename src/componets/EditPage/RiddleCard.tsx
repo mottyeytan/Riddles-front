@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRiddles } from '../../dal/UseRiddles.tsx';
 
 export default function RiddleCard({riddle}: {riddle: Riddle}){
-    const { updateRiddle } = useRiddles(); 
+    const { updateRiddle, deleteRiddle } = useRiddles(); 
     const [isEditing, setIsEditing] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -68,11 +68,27 @@ export default function RiddleCard({riddle}: {riddle: Riddle}){
             setIsEditing(false);
             setLoading(false);
         } catch (error) {
-            setError(error instanceof Error ? error.message : 'An error occurred');
+            setError('An error occurred');
         } finally {
             setLoading(false);
         }
     };
+
+
+    async function handleDelete() {
+        
+        try {
+            setLoading(true);
+            setError(null);
+            await deleteRiddle(riddle.id);
+            setIsEditing(false);
+            setLoading(false);
+        } catch (error) {
+            setError('An error occurred');
+        } finally {
+            setLoading(false);
+        }
+    }
 
 
     
@@ -85,7 +101,6 @@ export default function RiddleCard({riddle}: {riddle: Riddle}){
         <div className="riddle-card-container"> 
             <div className="riddle-card">
                 {!isEditing ? (
-                    // מצב הצגה רגיל
                     <>
                         <h3>{riddle.name}</h3>
                         <p><strong>Description:</strong> {riddle.description}</p>   
@@ -96,11 +111,11 @@ export default function RiddleCard({riddle}: {riddle: Riddle}){
 
                         <div className="riddle-card-actions">
                             <button onClick={startEditing}>Edit</button>
-                            {/* <button onClick={handleDelete}>Delete</button> */}
+                            <button onClick={handleDelete}>Delete</button>
                         </div>
                     </>
                 ) : (
-                    // מצב עריכה
+                    
                     <>
                         <input 
                             type="text" 
