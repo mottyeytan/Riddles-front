@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRiddles } from '../../dal/UseRiddles.tsx';
 export default function Game(){
     const { riddles } = useRiddles();
