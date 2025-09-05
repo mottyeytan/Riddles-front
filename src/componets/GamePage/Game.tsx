@@ -43,6 +43,26 @@ export default function Game(){
         setMessage('');
     }
 
+    if (!riddles || riddles.length === 0) {
+        return (
+            <div className="riddle-card">
+                <h2>Loading riddles...</h2>
+            </div>
+        );
+    }
+
+    if (!currentRiddle) {
+        return (
+            <div className="riddle-card">
+                <h2>No riddles available for {difficulty} difficulty</h2>
+                <select className="riddle-difficulty-select" onChange={(e) => handleDifficulty(e.target.value as 'easy' | 'medium' | 'hard')}>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+        );
+    }
 
     return (
         <div className="riddle-card">

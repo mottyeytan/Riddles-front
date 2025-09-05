@@ -6,7 +6,7 @@ import NavBar from './componets/NavBar.tsx'
 import GamePage from './pages/GamePage.tsx'
 import EditRiddlesPage from './pages/EditRiddlesPage.tsx'
 import LeaderBoardPage from './pages/LeaderBoardPage.tsx'
-import TokenSaveProvider from './auth/AuthContext.tsx'
+import AuthProvider from './auth/AuthContext.tsx'
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute.tsx'
 import ProtectedRouteUser from './ProtectedRoute/ProtectedRoute.tsx'
 import { RiddlesProvider } from './dal/UseRiddles.tsx'
@@ -16,7 +16,7 @@ function App() {
   const showNavBar = location.pathname !== '/';
 
   return (
-    <TokenSaveProvider>
+    <AuthProvider>
       <RiddlesProvider>
 
       {showNavBar && <NavBar />}
@@ -38,7 +38,7 @@ function App() {
         </Routes>
         
       </RiddlesProvider>
-    </TokenSaveProvider>
+    </AuthProvider>
   )
 }
 
