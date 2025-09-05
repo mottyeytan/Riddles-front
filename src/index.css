@@ -520,3 +520,75 @@ Form Styles
   }
 }
 
+/* NavBar Styles - Solid Design */
+.nav-bar {
+  background-color: #f9f9f9 !important;
+  border-bottom: 1px solid #ddd !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  z-index: 1000;
+  transition: all 0.2s ease;
+  padding: 12px 20px !important;
+}
+
+.nav-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  order: 2;
+}
+
+.nav-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  order: 1;
+}
+
+.nav-bar button {
+  padding: 8px 16px;
+  border: 1px solid #646cff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  color: white;
+  background-color: #007bff;
+  transition: background-color 0.2s;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar button:hover {
+  background-color: #0056b3;
+}
+
+/* Logout Button - Different Style */
+.nav-bar-right button {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.nav-bar-right button:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* Responsive NavBar */
+@media (max-width: 768px) {
+  .nav-bar {
+    padding: 10px 15px !important;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .nav-bar-left {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-bar button {
+    padding: 6px 12px;
+    font-size: 0.9em;
+  }
+}
+
