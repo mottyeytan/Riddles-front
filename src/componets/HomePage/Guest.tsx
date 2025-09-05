@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../auth/AuthContext.tsx';
 import { useState } from 'react';
 
-export default function Guest(){
+export default function Guest({ setLoading }: { setLoading: (loading: boolean) => void }){
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [error, setError] = useState('');
@@ -12,6 +12,7 @@ export default function Guest(){
     async function handleGuestLogin(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         
+        setLoading(true);
         try{
             const response = await fetch('https://riddle-server.onrender.com/auth/signup', {
                 method: 'POST',
@@ -38,6 +39,8 @@ export default function Guest(){
         } catch (error) {
             setError(error instanceof Error ? error.message : 'Invalid username or password');
             console.log(error);
+        } finally {
+            setLoading(false);
         }
     }
 

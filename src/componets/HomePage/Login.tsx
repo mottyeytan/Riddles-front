@@ -3,7 +3,7 @@ import { useAuth } from '../../auth/AuthContext.tsx';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function Login(){
+export default function Login({ setLoading }: { setLoading: (loading: boolean) => void }){
     const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
@@ -15,7 +15,7 @@ export default function Login(){
     async function handleLogin(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         
-
+        setLoading(true);
         try{
             const response = await fetch('https://riddle-server.onrender.com/auth/login', {
                 method: 'POST',
@@ -35,16 +35,17 @@ export default function Login(){
             if(response.ok){
                 login(data.token, data.role);
                 navigate('/menu');
-
+                setLoading(false);
             } else {
                 setError(data.message || 'Invalid username or password');
             }
         } catch (error) {
             setError(error instanceof Error ? error.message : 'Invalid username or password');
             console.log(error);
+        } finally {
+            setLoading(false);
         }
     }
-
 
     return (
         <div className="login-componet">

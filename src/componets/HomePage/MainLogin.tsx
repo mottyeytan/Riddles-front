@@ -6,20 +6,29 @@ import Register from "./Register.tsx";
 
 export default function MainLogin(){
     const [activeMode, setActiveMode] = useState('login');
+    const [loading, setLoading] = useState(false);
 
     const renderActiveComponent = () => {
         switch(activeMode) {
             case 'register':
-                return <Register />;
+                return <Register setLoading={setLoading} />;
             case 'guest':
-                return <Guest />;
+                return <Guest setLoading={setLoading} />;
             default:
-                return <Login />;
+                return <Login setLoading={setLoading} />;
         }
     };
 
+    if(loading){
+        return (
+            <div className="login-componet">
+                <h1>Loading...</h1>
+            </div>
+        );
+    }
+
     return (
-        <div className="login-componet">
+        <div className="main-login-componet">
             {renderActiveComponent()}
             <Buttons 
                 activeMode={activeMode}
