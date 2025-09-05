@@ -92,16 +92,107 @@ button:focus-visible {
   gap: 10px;
 }
 
-.riddle-card{
-  margin-top: 50px;
-  display: grid ;
-  grid-template-columns: auto auto ;  
-  grid-template-rows: 1fr 1fr ;
-  
+.riddle-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100vw;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.riddle-card h1{
+  font-size: 1.5em;
+}
+
+.riddle-description{
+  font-size: 1em;
+  font-weight: 600;
+  color: #0a6064;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.riddle-card input{
+  font-size: 1.2em;
+}
+
+.riddle-card h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 1.2em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.riddle-card p {
+  margin: 5px 0;
+  line-height: 1.4;
+}
+
+.riddle-card input, 
+.riddle-card textarea, 
+.riddle-card select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.riddle-card textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.riddle-card-actions {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.riddle-card-actions button {
+  padding: 8px 16px;
   border: 1px solid #646cff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  color: #0a6064;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+}
+
+.riddle-card-actions-enabled {
+  background-color: #007bff;
+  color: white;
+}
+
+.riddle-card-actions-enabled:hover {
+  background-color: #0056b3;
+}
+
+.riddle-card-actions-disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.riddle-card-actions-disabled:hover {
+  background-color: #cccccc;
 }
 
 .riddle-card-actions{
