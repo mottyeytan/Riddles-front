@@ -83,13 +83,12 @@ button:focus-visible {
 }
 
 .riddles-list{
-  margin-top: 50px;
   display: grid ;
   grid-template-columns: auto auto  ;  
   grid-template-rows: auto auto  ;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 25px;
 }
 
 .riddle-card {
@@ -203,22 +202,139 @@ button:focus-visible {
   gap: 10px;
 }
 
-.create-riddle-card{
-  margin-top: 50px;
-  display: grid ;
-  grid-template-columns: auto auto ;  
-  grid-template-rows: 1fr 1fr ;
-  
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border: 1px solid #646cff;
+.create-riddle-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.create-riddle-actions{
+.create-riddle-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100vw;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-riddle-card input, 
+.create-riddle-card textarea, 
+.create-riddle-card select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.create-riddle-card input:focus, 
+.create-riddle-card textarea:focus, 
+.create-riddle-card select:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+.create-riddle-card textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.create-riddle-actions {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  margin-top: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
 }
+
+.create-riddle-actions button {
+  padding: 8px 16px;
+  border: 1px solid #646cff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  color: #0a6064;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+  background-color: #007bff;
+  color: white;
+}
+
+.create-riddle-actions button:hover {
+  background-color: #0056b3;
+}
+
+
+.riddle-card-edit {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 23vw;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.riddle-card-edit h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 1.2em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.riddle-card-edit p {
+  margin: 5px 0;
+  line-height: 1.4;
+}
+
+.riddle-card-edit input, 
+.riddle-card-edit textarea, 
+.riddle-card-edit select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.riddle-card-edit input:focus, 
+.riddle-card-edit textarea:focus, 
+.riddle-card-edit select:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+.riddle-card-edit textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+
+.menu-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+

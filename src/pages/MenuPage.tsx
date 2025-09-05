@@ -12,9 +12,9 @@ export default function MenuPage(){
 
     return (
         <div className="menu-page">
-            <PlayGameButton />
-            {showEditRiddles && <EditRiddlesButton />}
-            <LeaderboardButton />
+            <PlayGameButton/>
+            {showEditRiddles && <EditRiddlesButton/>}
+            <LeaderboardButton/>
         </div>
     )
 }

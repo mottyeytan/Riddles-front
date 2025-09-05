@@ -8,7 +8,7 @@ export default function EditRiddlesButton(){
         navigate('/edit-riddles');
     }
     return (
-        <div className="edit-riddles-button">
+        <div className="menu-page-button" >
             <button onClick={handleEditRiddles}>Edit Riddles</button>
         </div>
     )

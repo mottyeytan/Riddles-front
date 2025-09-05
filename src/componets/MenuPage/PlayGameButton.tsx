@@ -9,7 +9,7 @@ export default function PlayGameButton(){
         navigate('/game');
     }
     return (
-        <div className="play-game-button">
+        <div className="menu-page-button" >
             <button onClick={handlePlayGame}>Play Game</button>
         </div>
     )

@@ -95,8 +95,8 @@ export default function RiddleCard({riddle}: {riddle: Riddle}){
     };
     
     return (
-        <div className="riddle-card-container"> 
-            <div className="riddle-card">
+        <div className="riddle-card-edit-container"> 
+            <div className="riddle-card-edit">
                 {!isEditing ? (
                     <>
                         <h3>{riddle.name}</h3>
